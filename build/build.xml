@@ -87,7 +87,20 @@
       <sf:retrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="salesforcepkg" unpackaged="../src/package.xml"/>
       <copy todir="../src">
 	<fileset dir="salesforcepkg/"/>
-     </copy>	      
+     </copy>	
+     <exec executable="git">
+        <arg value="add/>
+	<arg value=" ."/>
+     </exec>		       
+     <exec executable="git">
+        <arg value="commit/>
+	<arg value=" -m"/>
+	<arg value="'committed with bamboo git'"/>     
+     </exec>
+     <exec executable="git">
+        <arg value="push/>
+	<arg value=" -f"/> 
+     </exec>
 	    
     </target>
 
