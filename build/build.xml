@@ -85,11 +85,9 @@
 			<arg value="-all"/>
 	  </exec>
       <sf:retrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="salesforcepkg" unpackaged="../src/package.xml"/>
-	<exec executable="cp">
-		<arg value = "-r"/>
-		<arg value = "salesforcepkg/."/>
-		<arg value ="/."/>
-        </exec>
+      <copy todir="/">
+	<fileset dir"/salesforcepkg/"/>
+     </copy>	      
 	    
     </target>
 
